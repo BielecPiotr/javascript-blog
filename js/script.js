@@ -57,6 +57,8 @@
 
     /* remove titleList content */
 
+    document.querySelector('.titles').innerHTML = '';
+
     /* loop for every one article */
 
       /* read article id and save it in const */
@@ -65,7 +67,7 @@
 
       /* make links html and save in const */
 
-      /* put made html into left column */
+      /* put created html into left column */
   }
 
   generateTitleLinks();
