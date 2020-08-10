@@ -1,18 +1,10 @@
 'use strict';
 
-/*
-document.getElementById('test-button').addEventListener('click', function(){
-    const links = document.querySelectorAll('.titles a');
-    console.log('links:', links);
-  });
-*/
-
 const titleClickHandler = function(event){
   event.preventDefault();
   const clickedElement = this;
   console.log('Link was clicked!');
   console.log('event: ', event);
-
 
     /* [DONE] remove class 'active' from all article links  */
 
@@ -59,4 +51,3 @@ const titleClickHandler = function(event){
   for(let link of links){
     link.addEventListener('click', titleClickHandler);
   }
-
