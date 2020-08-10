@@ -8,9 +8,11 @@ document.getElementById('test-button').addEventListener('click', function(){
 */
 
 const titleClickHandler = function(event){
-    const clickedElement = this;
-    console.log('Link was clicked!');
-    console.log('event: ', event);
+  event.preventDefault();
+  const clickedElement = this;
+  console.log('Link was clicked!');
+  console.log('event: ', event);
+
 
     /* [DONE] remove class 'active' from all article links  */
 
@@ -20,7 +22,7 @@ const titleClickHandler = function(event){
         activeLink.classList.remove('active');
     }
 
-    /* [IN PROGRESS] add class 'active' to the clicked link */
+    /* [DONE] add class 'active' to the clicked link */
 
     console.log('clickedElement: ', clickedElement);
     console.log('clickedElement with plus: ' + clickedElement);
