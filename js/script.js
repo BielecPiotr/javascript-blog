@@ -62,6 +62,8 @@
     const articles = document.querySelectorAll(optArticleSelector);
     console.log('articles: ', articles);
 
+    let html = '';
+
     for(let article of articles){
 
       /* read article id and save it in const */
@@ -81,20 +83,20 @@
 
       /* put created html into left column */
 
-      document.querySelector(optTitleListSelector).insertAdjacentHTML('beforebegin', linkHTML);
+      html = html + linkHTML;
+
+    }
+
+    document.querySelector(optTitleListSelector).innerHTML = html;
 
       const links = document.querySelectorAll('.titles a');
-      console.log('links ', links);
+        console.log('links ', links);
 
-    for(let link of links){
-      link.addEventListener('click', titleClickHandler);
-    }
-
-    }
+      for(let link of links){
+        link.addEventListener('click', titleClickHandler);
+      }
   }
 
   generateTitleLinks();
-
-
 
 }
