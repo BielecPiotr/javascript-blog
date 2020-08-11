@@ -53,13 +53,17 @@
       link.addEventListener('click', titleClickHandler);
     }
 
-  const generateTitleLinks = function(){
+  function generateTitleLinks(){
 
     /* remove titleList content */
 
     document.querySelector('.titles').innerHTML = '';
 
     /* loop for every one article */
+
+    const articles = document.getElementsByClassName('.post');
+
+    for(let article of articles){
 
       /* read article id and save it in const */
 
@@ -68,6 +72,8 @@
       /* make links html and save in const */
 
       /* put created html into left column */
+
+    }
   }
 
   generateTitleLinks();
