@@ -47,35 +47,54 @@
       console.log('clickedarticleafter: ', clickedArticle);
     }
 
-    const links = document.querySelectorAll('.titles a');
-
-    for(let link of links){
-      link.addEventListener('click', titleClickHandler);
-    }
+  const optArticleSelector = '.post',
+  optTitleSelector = '.post-title',
+  optTitleListSelector = '.titles';
 
   function generateTitleLinks(){
 
     /* remove titleList content */
 
-    document.querySelector('.titles').innerHTML = '';
+    document.querySelector(optTitleListSelector).innerHTML = '';
 
     /* loop for every one article */
 
-    const articles = document.getElementsByClassName('.post');
+    const articles = document.querySelectorAll(optArticleSelector);
+    console.log('articles: ', articles);
 
     for(let article of articles){
 
       /* read article id and save it in const */
 
+      const articleId = article.getAttribute('id');
+      console.log('articleId: ' + articleId);
+
       /* find title element and save in const */
+
+      const articleTitle = article.querySelector(optTitleSelector).innerHTML;
+      console.log('articleTitle:' + articleTitle);
 
       /* make links html and save in const */
 
+      const linkHTML = '<li><a href="#' + articleId +'"><span>' + articleTitle + '</span></a></li>';
+      console.log('linkHTML: ' + linkHTML);
+
       /* put created html into left column */
+
+      document.querySelector(optTitleListSelector).insertAdjacentHTML('beforebegin', linkHTML);
+
+      const links = document.querySelectorAll('.titles a');
+      console.log('links ', links);
+
+    for(let link of links){
+      link.addEventListener('click', titleClickHandler);
+    }
 
     }
   }
 
   generateTitleLinks();
+
+
 
 }
