@@ -78,7 +78,7 @@
 
       /* make links html and save in const */
 
-      const linkHTML = '<li><a href="#' + articleId +'"><span>' + articleTitle + '</span></a></li>';
+      const linkHTML = '<li><a href="#' + articleId +'"><span>' + articleTitle  + '</span></a></li>';
       console.log('linkHTML: ' + linkHTML);
 
       /* put created html into left column */
