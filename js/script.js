@@ -7,45 +7,46 @@
     console.log('Link was clicked!');
     console.log('event: ', event);
 
-    /* [DONE] remove class 'active' from all article links  */
 
+    /* [DONE] remove class 'active' from all article links  */
     const activeLinks = document.querySelectorAll('.titles a.active');
 
     for(let activeLink of activeLinks){
       activeLink.classList.remove('active');
     }
 
-    /* [DONE] add class 'active' to the clicked link */
 
+    /* [DONE] add class 'active' to the clicked link */
     console.log('clickedElement: ', clickedElement);
     console.log('clickedElement with plus: ' + clickedElement);
 
     clickedElement.classList.add('active');
 
-    /* [DONE] remove class 'active' from all articles */
 
+    /* [DONE] remove class 'active' from all articles */
     const activeArticles = document.querySelectorAll('.posts article.active');
 
     for(let activeArticle of activeArticles){
       activeArticle.classList.remove('active');
     }
 
-    /* get 'href' attribute from the clicked link */
 
+    /* get 'href' attribute from the clicked link */
     const hrefFromLink = clickedElement.getAttribute('href');
     console.log('hrefFromLink: ', hrefFromLink);
 
-    /* find the correct article using the selector (value of 'href' attribute) */
 
+    /* find the correct article using the selector (value of 'href' attribute) */
     const clickedArticle = document.querySelector(hrefFromLink);
     console.log('clickedArticle: ', clickedArticle);
 
+
     /* add class 'active' to the correct article */
-
     clickedArticle.classList.add('active');
-
     console.log('clickedarticleafter: ', clickedArticle);
   };
+
+
 
   const optArticleSelector = '.post',
     optTitleSelector = '.post-title',
@@ -55,37 +56,32 @@
   const generateTitleLinks = function(){
 
     /* remove titleList content */
-
     document.querySelector(optTitleListSelector).innerHTML = '';
 
-    /* loop for every one article */
 
+    /* loop for every one article */
     const articles = document.querySelectorAll(optArticleSelector);
     console.log('articles: ', articles);
-
     let html = '';
-
     for(let article of articles){
 
       /* read article id and save it in const */
-
       const articleId = article.getAttribute('id');
       console.log('articleId: ' + articleId);
 
-      /* find title element and save in const */
 
+      /* find title element and save in const */
       const articleTitle = article.querySelector(optTitleSelector).innerHTML;
       console.log('articleTitle:' + articleTitle);
 
-      /* make links html and save in const */
 
+      /* make links html and save in const */
       const linkHTML = '<li><a href="#' + articleId +'"><span>' + articleTitle  + '</span></a></li>';
       console.log('linkHTML: ' + linkHTML);
 
+
       /* put created html into left column */
-
       html = html + linkHTML;
-
     }
 
     document.querySelector(optTitleListSelector).innerHTML = html;
@@ -101,29 +97,47 @@
   generateTitleLinks();
 
   const generateTags = function(){
+
     /* find all articles */
+    const articles = document.querySelectorAll(optArticleSelector);
+    console.log('articles: ', articles);
+
 
     /* START LOOP: for every article: */
+    for(let article of articles){
 
-    /* find tags wrapper */
+      /* find tags wrapper */
+      const tagsWrapper = article.querySelector(optArticleTagsSelector);
+      console.log('tagsWrapeer: ', tagsWrapper);
 
-    /* make html variable with empty string */
 
-    /* get tags from data-tags attribute */
+      /* make html variable with empty string */
+      let html = '';
 
-    /* split tags into array */
 
-    /* START LOOP: for each tag */
+      /* get tags from data-tags attribute */
+      const articleTags = article.getAttribute('data-tags');
+      console.log('articleTags: ', articleTags);
 
-    /* generate HTML of the link */
 
-    /* add generated code to html variable */
+      /* split tags into array */
+      const articleTagsArray = articleTags.split(' ');
+      console.log('articleTagsArray: ', articleTagsArray);
 
-    /* END LOOP: for each tag */
 
-    /* insert HTML of all the links into the tags wrapper */
+      /* START LOOP: for each tag */
+
+
+      /* generate HTML of the link */
+
+      /* add generated code to html variable */
+
+      /* END LOOP: for each tag */
+
+      /* insert HTML of all the links into the tags wrapper */
 
     /* END LOOP: for every article: */
+    }
   };
 
   generateTags();
