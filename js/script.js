@@ -105,6 +105,7 @@
 
     /* START LOOP: for every article: */
     for(let article of articles){
+      console.log('article: ', article);
 
       /* find tags wrapper */
       const tagsWrapper = article.querySelector(optArticleTagsSelector);
@@ -126,13 +127,21 @@
 
 
       /* START LOOP: for each tag */
+      for(let tag of articleTagsArray){
+        console.log('tag: ' + tag);
+
+        /* generate HTML of the link */
+        const tagHTML = '<li><a href="#tag-' +tag+ '">' +tag+ '</a></li>';
+        console.log('tagHTML: ' + tagHTML);
 
 
-      /* generate HTML of the link */
+        /* add generated code to html variable */
+        html = html + tagHTML;
+        console.log('html: ' + html);
 
-      /* add generated code to html variable */
 
       /* END LOOP: for each tag */
+      }
 
       /* insert HTML of all the links into the tags wrapper */
 
