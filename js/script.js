@@ -53,14 +53,15 @@
     optArticleTagsSelector = '.post-tags .list',
     optTitleListSelector = '.titles';
 
-  const generateTitleLinks = function(){
+  const generateTitleLinks = function(customSelector = ''){
+    console.log('customSelector: ' + customSelector);
 
     /* remove titleList content */
     document.querySelector(optTitleListSelector).innerHTML = '';
 
 
     /* loop for every one article */
-    const articles = document.querySelectorAll(optArticleSelector);
+    const articles = document.querySelectorAll(optArticleSelector + customSelector);
     console.log('articles: ', articles);
     let html = '';
     for(let article of articles){
@@ -170,7 +171,7 @@
     console.log('href: ' + href);
 
     /* make a new constant "tag" and extract tag from the "href" constant */
-    const tag = href.innerHTML;
+    const tag = href.replace('#tag-', '');
     console.log('tag: ' + tag);
 
 
