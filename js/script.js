@@ -207,7 +207,7 @@
 
 
     /* execute function "generateTitleLinks" with article selector as argument */
-    generateTitleLinks(optArticleSelector);
+    generateTitleLinks('[data-tags~="' + tag + '"]');
 
   };
 
