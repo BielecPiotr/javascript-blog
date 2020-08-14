@@ -131,12 +131,12 @@
         console.log('tag: ' + tag);
 
         /* generate HTML of the link */
-        const tagHTML = '<li><a href="#tag-' +tag+ '">' +tag+ '</a></li>';
+        const tagHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>';
         console.log('tagHTML: ' + tagHTML);
 
 
         /* add generated code to html variable */
-        html = html + tagHTML;
+        html = html + ' ' + tagHTML;
         console.log('html: ' + html);
 
 
@@ -144,6 +144,7 @@
       }
 
       /* insert HTML of all the links into the tags wrapper */
+      article.querySelector(optArticleTagsSelector).innerHTML = html;
 
     /* END LOOP: for every article: */
     }
