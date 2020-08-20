@@ -1,6 +1,10 @@
 {
   'use strict';
 
+  const templates = {
+    articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML)
+  };
+
   const opt = {
     articleSelector: '.post',
     titleSelector: '.post-title',
@@ -83,7 +87,8 @@
 
 
       /* make links html and save in const */
-      const linkHTML = '<li><a href="#' + articleId +'"><span>' + articleTitle  + '</span></a></li>';
+      const linkHTMLData = {id: articleId, title: articleTitle};
+      const linkHTML = templates.articleLink(linkHTMLData);
       console.log('linkHTML: ' + linkHTML);
 
 
